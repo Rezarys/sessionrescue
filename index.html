@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<title>sessionrescue: open a Tab Session Manager export that will not import</title>
+<meta name="description" content="Open your Tab Session Manager JSON export in the browser, see every tab as a link, and get a copy with fresh ids, a bookmarks file or a plain list. Nothing is uploaded.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Get your tabs back from a Tab Session Manager export</h1>
+<p>Some people report that re-importing a Tab Session Manager export shows "Sessions imported" and then nothing appears. This page opens those export files and shows every session, window and tab as a link you can click. It also gives you three files to download: a copy of the export with a new id on each session, a bookmarks file any browser can import, and a plain text list.</p>
+<p class="small">Choose one or more .json files exported by Tab Session Manager. The files are read in your browser and nothing in this page's code sends them anywhere; the page's security policy also stops its scripts from making network requests.</p>
+<p><label>Export files (.json) <input type="file" id="file" accept=".json,application/json" multiple></label></p>
+<p id="status" role="status"></p>
+<div id="actions" hidden>
+<p><button type="button" id="fresh">Download a copy with fresh ids (.json)</button></p>
+<p class="small">One user who edited and re-imported an export found that the import worked "only after I modified the id of the session" in the file. This copy gives every session a new id and a new last-edited time, and otherwise changes nothing, apart from filling in a missing field the import checks for (name, tag, tab count, date or start time). Import it from the extension's settings, under Import Sessions. It has not been tried in the extension yet, and it is not known to fix every report; if the session still does not show, use one of the two files below.</p>
+<p><button type="button" id="bookmarks">Download as bookmarks (.html)</button> <button type="button" id="text">Download as a text list (.txt)</button> <button type="button" id="clear">Clear the page</button></p>
+<p class="small">The bookmarks file has one folder per session and one subfolder per window; import it from your browser's bookmarks manager. Addresses that are not web or file links (for example the browser's own pages) are left out of it and are not clickable here, but they are in the text list.</p>
+</div>
+<div id="list"></div>
+<div class="price">
+<p><strong>Merge and clean up: 3 USD, one time, not built yet.</strong></p>
+<p>It would merge several exports into one session, drop duplicate tabs and empty new tabs, and give you one clean file to import. Nothing is charged now and no date is promised. If you want it, say so in a public comment on the issue below; there is no payment of any kind before I answer there.</p>
+<p><a href="https://github.com/Rezarys/sessionrescue/issues/1">Tell me you want it (free GitHub account needed)</a></p>
+</div>
+<p class="small">Not affiliated with Tab Session Manager or its author. The name is used here only to say which file this page reads. Built with AI assistance, reviewed and tested by me. No cookies, no browser storage, no analytics, no third-party code. MIT licensed, source on <a href="https://github.com/Rezarys/sessionrescue">GitHub</a>. Younes Z.</p>
+<script src="sessions.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
